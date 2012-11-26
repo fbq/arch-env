@@ -1,0 +1,24 @@
+URxvt.preeditType:Root
+URxvt.inputMethod:ibus
+
+URxvt.depth:256
+
+!!URxvt.transparent: true
+URxvt.background: rgba:0000/0000/0000/aaaa
+URxvt.foreground: Gray70
+
+URxvt.colorBD: Gray60
+URxvt.colorUL: Green
+URxvt.color1: Red2
+URxvt.color4: RoyalBlue
+URxvt.color5: Magenta2
+URxvt.color8: Gray50
+URxvt.color12: DodgerBlue
+URxvt.color14: Cyan2
+URxvt.color15: Gray60
+
+URxvt.scrollBar: False
+
+URxvt.cursorBlink: True
+
+URxvt.font:xft:DejaVu Sans Mono:size=12:style=Regular:antialias=true

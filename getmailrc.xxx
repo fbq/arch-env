@@ -1,0 +1,14 @@
+[retriever]
+type = SimpleIMAPSSLRetriever
+server = xxx.xxx.xxx
+username = xxxx
+password = xxxx
+
+[destination]
+type = Maildir
+path = /home/fixme/Mail/inbox/
+
+[options]
+verbose = 0
+delete = false
+message_log = /home/fixme/.getmail/getmail.log

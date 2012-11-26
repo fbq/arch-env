@@ -1,0 +1,51 @@
+set spoolfile = ~/Mail/inbox
+set folder = ~/Mail/
+set tmpdir = ~/.mutt/tmp
+
+set mbox_type = Maildir
+set mbox = +inbox
+set record = +inbox
+set postponed = +postponed
+
+mailboxes +inbox
+
+set sort = threads
+set pager_stop = yes
+set fast_reply = yes
+set include = yes
+set move = no
+
+my_hdr From: "Feng, Boqun" <boqun.feng@XXX.com>
+
+set from = "boqun.feng@XXX.com"
+
+set sendmail = /usr/bin/msmtp
+
+# set for getmail
+macro index G "!getmail -v -n -r getmailrc.XXX\n"
+macro pager G "!getmail -v -n -r getmailrc.XXX\n"
+
+# color setting, I doesn't know their meanings
+#
+color hdrdefault black    cyan 
+color quoted     blue          black
+color signature  white  black
+color indicator  black  white
+color attachment black        green
+color error      red          black
+color message    white         black
+color search     brightwhite  magenta
+color status     brightyellow blue
+color tree       red          black
+color normal     white         black
+color tilde      green        black
+color bold       brightyellow black
+color markers    black          white
+color index  brightwhite    black ~N
+color index  blue    black ~O
+color index  black    red ~D
+mono bold      bold
+mono underline underline
+mono indicator reverse
+
+auto_view text/html
