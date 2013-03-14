@@ -10,7 +10,7 @@ depends+=(xf86-input-mouse xf86-input-keyboard xf86-input-synaptics xf86-video-i
 # X services
 depends+=(xorg-server xorg-xinit xorg-font-utils ttf-dejavu wqy-zenhei)
 # X applications
-depends+=(xorg-xrandr xorg-xmodmap xorg-xsetroot xorg-xrdb xorg-xdpyinfo)
+depends+=(xorg-xrandr xorg-xmodmap xorg-xsetroot xorg-xrdb xorg-xdpyinfo xclip)
 # xmonad desktop environment
 depends+=(xmonad dmenu rxvt-unicode xcompmgr fcitx xlockmore)
 # GUI apps
