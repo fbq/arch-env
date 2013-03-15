@@ -12,7 +12,7 @@ depends+=(xorg-server xorg-xinit xorg-font-utils ttf-dejavu wqy-zenhei)
 # X applications
 depends+=(xorg-xrandr xorg-xmodmap xorg-xsetroot xorg-xrdb xorg-xdpyinfo xclip)
 # xmonad desktop environment
-depends+=(xmonad dmenu rxvt-unicode xcompmgr xlockmore)
+depends+=(xmonad dmenu rxvt-unicode xcompmgr xlockmore hsetroot)
 # fcitx input method
 depends+=(fcitx fcitx-gtk2 fcitx-gtk3 fcitx-qt4 fcitx-qt5)
 # GUI apps
