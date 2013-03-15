@@ -1,5 +1,5 @@
 URxvt.preeditType:Root
-URxvt.inputMethod:ibus
+URxvt.inputMethod:fcitx
 
 URxvt.depth:256
 
