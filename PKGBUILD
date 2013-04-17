@@ -18,3 +18,8 @@ depends+=(fcitx fcitx-gtk2 fcitx-gtk3 fcitx-qt4 fcitx-qt5)
 # GUI apps
 depends+=(chromium)
 license=('GPL')
+
+package() {
+	echo "amazing things happen with archlinuxs~"
+	echo "archlinux require a package() function in PKGBUILD"
+}
