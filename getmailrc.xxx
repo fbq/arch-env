@@ -3,6 +3,7 @@ type = SimpleIMAPSSLRetriever
 server = xxx.xxx.xxx
 username = xxxx
 password = xxxx
+# mailboxes = ("Inbox", "cl-intel") 
 
 [destination]
 type = Maildir
