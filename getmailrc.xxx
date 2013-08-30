@@ -2,7 +2,9 @@
 type = SimpleIMAPSSLRetriever
 server = xxx.xxx.xxx
 username = xxxx
-password = xxxx
+# password = xxxx 
+# if we drop the password field here
+# every time we run getmail, it will prompt us to entry a password
 # mailboxes = ("Inbox", "cl-intel") 
 
 [destination]
