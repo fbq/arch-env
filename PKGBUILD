@@ -11,8 +11,8 @@ depends+=(xf86-input-mouse xf86-input-keyboard xf86-input-synaptics xf86-video-i
 depends+=(xorg-server xorg-xinit xorg-font-utils ttf-dejavu wqy-zenhei)
 # X applications
 depends+=(xorg-xrandr xorg-xmodmap xorg-xsetroot xorg-xrdb xorg-xdpyinfo xclip scrot)
-# xmonad desktop environment
-depends+=(xmonad dmenu rxvt-unicode xcompmgr xlockmore hsetroot)
+# desktop environment use cabal to install xmonad manually
+depends+=(dmenu rxvt-unicode xcompmgr xlockmore hsetroot)
 # fcitx input method
 depends+=(fcitx fcitx-gtk2 fcitx-gtk3 fcitx-qt4 fcitx-qt5)
 # GUI apps
