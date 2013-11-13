@@ -1,14 +1,24 @@
-set nu
 set nocp
-syntax on
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'uguu-org/vim-matrix-screensaver'
+Bundle 'fbq/mvp'
+Bundle 'snipMate'
 
 filetype on
 filetype indent on
 filetype plugin on
 
+syntax on
+set nu
+
 " setting for js
-au FileType javascript setlocal sw=2 sts=2 et ts=2 sta si
-au FileType html setlocal sw=2 sts=2 et ts=2 sta si
+au FileType javascript setlocal sw=4 sts=4 et ts=4 sta si
+au FileType html setlocal sw=4 sts=4 et ts=4 sta si
 
 " setting for python
 au FileType python setlocal sw=4 sts=4 et ts=4 sta si

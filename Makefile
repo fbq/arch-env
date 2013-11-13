@@ -33,5 +33,3 @@ ${HOME}/.xmonad/xmonad.hs : xmonad.hs
 	mkdir -p ${HOME}/.xmonad
 	cp xmonad.hs ${HOME}/.xmonad/xmonad.hs
 
-${HOME}/.fontconfig/fonts.conf : fonts.conf
-	mkdir -p ${HOME}/.fontconfig/fonts.conf
