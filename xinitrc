@@ -18,13 +18,11 @@ fi
 
 
 
-fcitx --disable fcitx-xkb
+fcitx-autostart
 
 xsetroot -cursor_name left_ptr
 
 hsetroot -full ~/.screen.xpm 
-
-xcompmgr -c &
 
 xmodmap ~/.Xmodmap 
 
