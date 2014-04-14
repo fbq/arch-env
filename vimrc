@@ -5,7 +5,6 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'uguu-org/vim-matrix-screensaver'
 Bundle 'fbq/mvp'
 Bundle 'snipMate'
 
@@ -36,3 +35,4 @@ cs add ./cscope.out
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 set cscopetag
 
+set laststatus=2
