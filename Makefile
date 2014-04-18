@@ -10,8 +10,8 @@ PERSONAL_CONFIG_FILE_LIST= \
 all: ${PERSONAL_CONFIG_FILE_LIST}
 
 ${HOME}/.fontconfig/fonts.conf : fonts.conf
-	mkdir -p ${HOME}/.fontconfig/
-	cp fonts.conf ${HOME}/.fontconfig/
+	mkdir -p ${HOME}/.config/fontconfig/
+	cp fonts.conf ${HOME}/.config/fontconfig/
 
 ${HOME}/.vimrc : vimrc
 	mkdir -p ${HOME}
