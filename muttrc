@@ -49,3 +49,9 @@ mono underline underline
 mono indicator reverse
 
 auto_view text/html
+
+set pipe_split = yes
+# while this is a tagged mail exists, run function to all tagged mail
+# if set no, you need to press ';' to switch the function target from
+# current mail to tagged mails 
+set auto_tag = yes
