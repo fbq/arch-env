@@ -4,30 +4,61 @@ set tmpdir = ~/.mutt/tmp
 
 set mbox_type = Maildir
 set mbox = +inbox
-set record = +inbox
+set record = +record
 set postponed = +postponed
 
+# + and = both stand for ${folder}
 mailboxes +inbox
 
+# mail sorted by thread
 set sort = threads
+
+# pager_stop(default no)
+# When set, the internal-pager will *not* move to the next message
+# when you are at the end of a message and invoke the next-page function.
 set pager_stop = yes
+
+# fast_reply(default no)
+# When set, the initial prompt for recipients and subject are skipped
+# when replying to messages, and the initial prompt for subject is skipped
+# when forwarding messages.
 set fast_reply = yes
+
+# contain the quote in reply or forward
 set include = yes
+
+# something about spoolfile and mbox
+# I have no idea about them
 set move = no
 
-my_hdr From: "Feng, Boqun" <boqun.feng@XXX.com>
+# set mail address book i.e. alias_file
+# create-alias function will write alias in the file
+set alias_file = ~/.mail_alias
+# source the alias_file to make the alias effective
+source ~/.mail_alias
 
-set from = "boqun.feng@XXX.com"
 
+# Both my_hdr command and variable of ${realname} and $from can
+# make the From field correct, I choose to use variable way,
+# because it seems my name will always be Boqun Feng
+#my_hdr From: "Boqun Feng" <boqun.feng@linux.vnet.ibm.com>
+set realname = "Boqun Feng"
+set from = boqun.feng@domain.com
+
+# set for msmtp
 set sendmail = /usr/bin/msmtp
 
 # set for getmail
-macro index G "!getmail -v -n -r getmailrc.XXX\n"
-macro pager G "!getmail -v -n -r getmailrc.XXX\n"
+macro index G "!getmail -v -n -r getmailrc.youraccount\n"
+macro pager G "!getmail -v -n -r getmailrc.youraccount\n"
+
+# the orignal key-binding for j and k is <next-undeleted> and <previous-undeleted>
+#macro pager j <next-line>
+#macro pager k <previous-line>
 
 # color setting, I doesn't know their meanings
 #
-color hdrdefault black    cyan 
+color hdrdefault black    cyan
 color quoted     blue          black
 color signature  white  black
 color indicator  black  white
@@ -49,9 +80,16 @@ mono underline underline
 mono indicator reverse
 
 auto_view text/html
+alternative_order text/plain text/html
 
+# These are setting for `git am` directly from mutt
+
+# pipe the tagged mails one by one, rather than concat them as a single file
 set pipe_split = yes
-# while this is a tagged mail exists, run function to all tagged mail
+
+# run function for tagged mails rather then current mail
+# (the current mail is the mail under cursor
 # if set no, you need to press ';' to switch the function target from
-# current mail to tagged mails 
+# current mail to tagged mails
 set auto_tag = yes
+
