@@ -26,5 +26,7 @@ hsetroot -full ~/.screen.xpm
 
 xmodmap ~/.Xmodmap 
 
+eval $(gpg-agent --daemon)
+
 exec xmonad
 
