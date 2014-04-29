@@ -9,27 +9,26 @@ PERSONAL_CONFIG_FILE_LIST= \
 	 
 all: ${PERSONAL_CONFIG_FILE_LIST}
 
-${HOME}/.fontconfig/fonts.conf : fonts.conf
+${HOME}/.fontconfig/fonts.conf : fontconfig/fonts.conf
 	mkdir -p ${HOME}/.config/fontconfig/
-	cp fonts.conf ${HOME}/.config/fontconfig/
+	cp fontconfig/fonts.conf ${HOME}/.config/fontconfig/
 
-${HOME}/.vimrc : vimrc
+${HOME}/.vimrc : vim/vimrc
 	mkdir -p ${HOME}
-	cp vimrc ${HOME}/.vimrc
+	cp vim/vimrc ${HOME}/.vimrc
 
-${HOME}/.Xdefaults : Xdefaults
+${HOME}/.Xdefaults : X/Xdefaults
 	mkdir -p ${HOME}
-	cp Xdefaults ${HOME}/.Xdefaults
+	cp X/Xdefaults ${HOME}/.Xdefaults
 
-${HOME}/.xinitrc : xinitrc
+${HOME}/.xinitrc : X/xinitrc
 	mkdir -p ${HOME}
-	cp xinitrc ${HOME}/.xinitrc
+	cp X/xinitrc ${HOME}/.xinitrc
 
-${HOME}/.Xmodmap : Xmodmap
+${HOME}/.Xmodmap : X/Xmodmap
 	mkdir -p ${HOME}
-	cp Xmodmap ${HOME}/.Xmodmap
+	cp X/Xmodmap ${HOME}/.Xmodmap
 
-${HOME}/.xmonad/xmonad.hs : xmonad.hs
+${HOME}/.xmonad/xmonad.hs : X/xmonad.hs
 	mkdir -p ${HOME}/.xmonad
-	cp xmonad.hs ${HOME}/.xmonad/xmonad.hs
-
+	cp X/xmonad.hs ${HOME}/.xmonad/xmonad.hs
