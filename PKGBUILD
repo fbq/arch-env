@@ -5,7 +5,7 @@ pkgdesc="A dummpy package for build up my favorite archlinux environment"
 arch=('any')
 # apps
 depends=(gvim git mutt getmail msmtp ghc cabal-install bash-completion sudo gdb openssh weechat goagent python2-pyopenssl)
-depends=(gnupg pass)
+depends=(gnupg pass mosh)
 # X drivers
 depends+=(xf86-input-mouse xf86-input-keyboard xf86-input-synaptics xf86-video-intel)
 # X services

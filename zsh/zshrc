@@ -85,6 +85,8 @@ alias ls='ls -F --color=auto'
 alias ll='ls -l'
 alias grep='grep --color=auto'
 alias ee='emacsclient -t'
+alias ssh='TERM=linux ssh'
+alias mosh='TERM=linux mosh'
 
 #路径别名 进入相应的路径时只要 cd ~xxx
 hash -d WWW="/home/lighttpd/html"
