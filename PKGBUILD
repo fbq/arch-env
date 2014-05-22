@@ -9,7 +9,7 @@ depends=(gnupg pass mosh)
 # X drivers
 depends+=(xf86-input-mouse xf86-input-keyboard xf86-input-synaptics xf86-video-intel)
 # X services
-depends+=(xorg-server xorg-xinit xorg-font-utils ttf-dejavu wqy-zenhei)
+depends+=(xorg-server xorg-xinit xorg-font-utils ttf-dejavu wqy-zenhei wqy-microhei)
 # X applications
 depends+=(xorg-xrandr xorg-xmodmap xorg-xsetroot xorg-xrdb xorg-xdpyinfo xclip scrot)
 # desktop environment use cabal to install xmonad manually

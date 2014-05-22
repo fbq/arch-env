@@ -21,5 +21,5 @@ URxvt.scrollBar: False
 
 URxvt.cursorBlink: True
 
-URxvt.font:xft:DejaVu Sans Mono:size=12:style=Regular:antialias=true
-!!URxvt.font:xft:Monaco:size=12:style=Regular:antialias=true
+!!URxvt.font:xft:DejaVu Sans Mono:size=12:style=Regular:antialias=true
+URxvt.font:xft:Monaco:size=12:style=Regular:antialias=true,xft:WenQuanYi Zen Hei Mono:size=12:style=Regular:antialias=true
