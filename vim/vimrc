@@ -7,6 +7,11 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'fbq/mvp'
 Bundle 'snipMate'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'plasticboy/vim-markdown'
+
+"gtags i.e. GNU GLOBAL need to be installed
+Bundle 'gtags.vim'
 
 filetype on
 filetype indent on
@@ -22,17 +27,28 @@ au FileType html setlocal sw=4 sts=4 et ts=4 sta si
 " setting for python
 au FileType python setlocal sw=4 sts=4 et ts=4 sta si
 
-" setting for haskell
-" this no need for setting for haskell, just download vim script from
-" http://www.vim.org/scripts/script.php?script_id=4407
-" and put it in ~/.vim/indent/
-
 " setting for scheme
 au FileType scheme setlocal sw=2 sts=2 et sta si
+
+" setting for haskell
+au FileType haskell setlocal sw=2 sts=2 et sta si
+
+" settig for markdown
+au FileType mkd setlocal sw=4 sts=4 et ts=4 sta si
+
+" setting for java
+au FileType java setlocal sw=4 sts=4 et ts=4 sta si
 
 " setting for cscope
 cs add ./cscope.out
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 set cscopetag
 
+" always show the status line
 set laststatus=2
+
+" add ./include into the path to find header file
+set path+=include
+
+" make mouse event processible by terminal version vim
+set mouse=a
