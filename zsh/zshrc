@@ -1,10 +1,6 @@
-#普通命令提示符，在控制台下可以正常显示，如需使用取消注释，并把底部有关提示符的语句注释掉
-#RPROMPT='%/'
-#PROMPT='%{[36m%}%n%{[35m%}@%{[34m%}%M %{[33m%}%D %T  %{[32m%}%/ 
-#%{[31m%}>>%{[m%}'
+#emacs key binding
+bindkey -e
 
-
-#关于历史纪录的配置
 # number of lines kept in history
 export HISTSIZE=10000
 # # number of lines saved in the history after logout
@@ -17,19 +13,14 @@ setopt INC_APPEND_HISTORY
 #Disable core dumps
 limit coredumpsize 0
 
-#Emacs风格键绑定
-bindkey -e
-#设置DEL键为向后删除
-bindkey "\e[3~" delete-char
-
 #以下字符视为单词的一部分
 WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 
-#自动补全功能
+
+#completion configuration
 setopt AUTO_LIST
 setopt AUTO_MENU
 setopt MENU_COMPLETE
-
 autoload -U compinit
 compinit
 
@@ -84,30 +75,9 @@ alias rm='rm -i'
 alias ls='ls -F --color=auto'
 alias ll='ls -l'
 alias grep='grep --color=auto'
-alias ee='emacsclient -t'
 alias ssh='TERM=linux ssh'
 alias mosh='TERM=linux mosh'
-
-#路径别名 进入相应的路径时只要 cd ~xxx
-hash -d WWW="/home/lighttpd/html"
-hash -d ARCH="/mnt/arch"
-hash -d PKG="/var/cache/pacman/pkg"
-hash -d E="/etc/env.d"
-hash -d C="/etc/conf.d"
-hash -d I="/etc/rc.d"
-hash -d X="/etc/X11"
-hash -d BK="/home/r00t/config_bak"
-
-##for Emacs在Emacs终端中使用Zsh的一些设置 不推荐在Emacs中使用它
-if [[ "$TERM" == "dumb" ]]; then
-setopt No_zle
-PROMPT='%n@%M %/
->>'
-alias ls='ls -F'
-fi 
-
-
-
+alias ibmirc='weechat -d .ibmirc'
 
 #效果超炫的提示符，如需要禁用，注释下面配置   
 function precmd {
@@ -131,15 +101,6 @@ function precmd {
     PR_FILLBAR="\${(l.(($TERMWIDTH - ($promptsize + $pwdsize)))..${PR_HBAR}.)}"
     fi
     
-    
-    ###
-    # Get APM info.
-    
-    #if which ibam > /dev/null; then
-    #PR_APM_RESULT=`ibam --percentbattery`
-    #elif which apm > /dev/null; then
-    #PR_APM_RESULT=`apm`
-    #fi
 }
 
 
@@ -214,16 +175,6 @@ setprompt () {
     fi
     
     
-    ###
-    # APM detection
-    
-    #if which ibam > /dev/null; then
-    #PR_APM='$PR_RED${${PR_APM_RESULT[(f)1]}[(w)-2]}%%(${${PR_APM_RESULT[(f)3]}[(w)-1]})$PR_LIGHT_BLUE:'
-    #elif which apm > /dev/null; then
-    #PR_APM='$PR_RED${PR_APM_RESULT[(w)5,(w)6]/\% /%%}$PR_LIGHT_BLUE:'
-    #else
-    PR_APM=''
-    #fi
     
     
     ###
@@ -254,5 +205,10 @@ $PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT$PR_NO_COLOUR '
 
 setprompt
 
-	#
-PATH=$PATH:~/.cabal/bin
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+export GOPATH=$HOME/go
+PATH=$HOME/.cabal/bin:$HOME/gem/ruby/2.1.0/bin:$GOPATH/bin:$PATH
+#for alogrithm class
+export PATH=$PATH:$HOME/algs4/bin
