@@ -209,6 +209,6 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 export GOPATH=$HOME/go
-PATH=$HOME/.cabal/bin:$HOME/gem/ruby/2.1.0/bin:$GOPATH/bin:$PATH
+PATH=$HOME/.cabal/bin:$HOME/.gem/ruby/2.1.0/bin:$GOPATH/bin:$PATH
 #for alogrithm class
 export PATH=$PATH:$HOME/algs4/bin
