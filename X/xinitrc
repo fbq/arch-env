@@ -24,7 +24,7 @@ xsetroot -cursor_name left_ptr
 
 hsetroot -full ~/.screen.xpm 
 
-xmodmap ~/.Xmodmap 
+setxkbmap -option ctrl:nocaps
 
 eval $(gpg-agent --daemon)
 
