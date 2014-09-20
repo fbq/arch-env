@@ -26,7 +26,7 @@ compinit
 
 # Completion caching
 zstyle ':completion::complete:*' use-cache on
-zstyle ':completion::complete:*' cache-path .zcache
+zstyle ':completion::complete:*' cache-path $HOME/.zcache
 #zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
 #Completion Options
@@ -77,13 +77,12 @@ alias ll='ls -l'
 alias grep='grep --color=auto'
 alias ssh='TERM=linux ssh'
 alias mosh='TERM=linux mosh'
-alias ibmirc='weechat -d .ibmirc'
 
 #效果超炫的提示符，如需要禁用，注释下面配置   
 function precmd {
     
     local TERMWIDTH
-    (( TERMWIDTH = ${COLUMNS} - 1 ))
+    (( TERMWIDTH = ${COLUMNS} ))
 
     
     ###
