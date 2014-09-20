@@ -26,6 +26,12 @@ depends+=(gdb)
 ## others
 depends+=(bash-completion pv)
 
+# services
+## power saving for laptop
+depends+=(tlp)
+## power management event listening
+depends+=(acpid) # ACPI events, suspend, etc.
+
 # X drivers
 depends+=(xf86-input-mouse xf86-input-evdev xf86-input-keyboard xf86-input-synaptics xf86-video-intel)
 
