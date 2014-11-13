@@ -3,7 +3,7 @@ pkgver=0
 pkgrel=1
 pkgdesc="A dummpy package for build up my favorite archlinux environment"
 arch=('any')
-depends=()
+depends=(base-devel)
 # apps
 ## editor
 depends+=(gvim)
@@ -15,6 +15,8 @@ depends+=(mutt getmail msmtp)
 depends+=(gnupg pass)
 ## network tool
 depends+=(openssh mosh gnu-netcat mtr dnsutils)
+## network proxy
+depends+=(shadowsocks)
 ## chatting
 depends+=(weechat freetalk)
 ## compilers and interpretes
@@ -42,7 +44,7 @@ depends+=(xorg-server xorg-xinit xorg-font-utils ttf-dejavu wqy-zenhei wqy-micro
 depends+=(xorg-xrandr xorg-setxkbmap xorg-xsetroot xorg-xrdb xorg-xdpyinfo xorg-xinput xclip scrot)
 
 # desktop environment, use cabal to install xmonad manually
-depends+=(dmenu rxvt-unicode xlockmore hsetroot)
+depends+=(dmenu rxvt-unicode xlockmore)
 
 # fcitx input method
 depends+=(fcitx fcitx-gtk2 fcitx-gtk3 fcitx-qt4 fcitx-qt5)
