@@ -1,63 +1,79 @@
-set spoolfile = ~/Mail/inbox
-set folder = ~/Mail/
-set tmpdir = ~/.mutt/tmp
+##############################################################################
+# Mailbox Settings
 
+# set the Mail folder, all email is stored in some directory of ${folder}
+set folder = ~/Mail/
+# set mailbox type
 set mbox_type = Maildir
-set mbox = +inbox
-set record = +record
-set postponed = +postponed
 
 # + and = both stand for ${folder}
-mailboxes +inbox
 
-# mail sorted by thread
-set sort = threads
+# set the default mailbox directory
+set mbox = +mbox1
 
-# pager_stop(default no)
-# When set, the internal-pager will *not* move to the next message
-# when you are at the end of a message and invoke the next-page function.
-set pager_stop = yes
+# set the record(sent) mailbox directory
+set record = +record
 
-# fast_reply(default no)
-# When set, the initial prompt for recipients and subject are skipped
-# when replying to messages, and the initial prompt for subject is skipped
-# when forwarding messages.
-set fast_reply = yes
+# set the "save for future sending" mailbox directory
+set postponed = +postponed
 
-# contain the quote in reply or forward
-set include = yes
+# mailboxes command tells mutt which folder is a mailbox, so when
+# a new mail comes, mutt will notify the user.
+mailboxes +mbox1 +mbox2
 
+# I do NOT know what this is
+set spoolfile = +mbox1
 # something about spoolfile and mbox
 # I have no idea about them
 set move = no
 
-# set mail address book i.e. alias_file
-# create-alias function will write alias in the file
-set alias_file = ~/.mail_alias
-# source the alias_file to make the alias effective
-source ~/.mail_alias
+# tmp directory
+set tmpdir = ~/.mutt/tmp
 
+##############################################################################
+# Mail Account Settings
 
-# Both my_hdr command and variable of ${realname} and $from can
+## From field setting ##
+
+# Both my_hdr command and variable of ${realname} and ${from} can
 # make the From field correct, I choose to use variable way,
 # because it seems my name will always be Boqun Feng
-#my_hdr From: "Boqun Feng" <boqun.feng@linux.vnet.ibm.com>
+#my_hdr From: "Boqun Feng" <boqun.feng@domain1>
 set realname = "Boqun Feng"
-set from = boqun.feng@domain.com
 
-# set for msmtp
+## SMTP setting ##
+
+# settings for msmtp
 set sendmail = /usr/bin/msmtp
+# mutt pass ${from} field via the ${sendmail}'s -f option
+set envelope_from = yes
 
-# set for getmail
-macro index G "!getmail -v -n -r getmailrc.youraccount\n"
-macro pager G "!getmail -v -n -r getmailrc.youraccount\n"
+# default settings for ${sendmail}
+set from = "boqun.feng@domain1"
 
-# the orignal key-binding for j and k is <next-undeleted> and <previous-undeleted>
-#macro pager j <next-line>
-#macro pager k <previous-line>
+# here is the auto account switch magic for ${sendmail}
+folder-hook =mbox2 set from = "boqun.feng@domain2"
+folder-hook =mbox1 set from = "boqun.feng@domain1"
+
+## IMAP/POP3 settings ##
+
+# default settings for getmail
+macro index G "!getmail -v -n -r getmailrc.domain1\n"
+macro pager G "!getmail -v -n -r getmailrc.domain1\n"
+
+folder-hook =mbox2 'macro index G "!getmail -v -n -r getmailrc.domain2\n"'
+folder-hook =mbox2 'macro pager G "!getmail -v -n -r getmailrc.domain2\n"'
+
+folder-hook =mbox1 'macro index G "!getmail -v -n -r getmailrc.domain1\n"'
+folder-hook =mbox1 'macro pager G "!getmail -v -n -r getmailrc.domain1\n"'
+
+##############################################################################
+# View Settings
+
+# mail sorted by thread
+set sort = threads
 
 # color setting, I doesn't know their meanings
-#
 color hdrdefault black    cyan
 color quoted     blue          black
 color signature  white  black
@@ -79,17 +95,66 @@ mono bold      bold
 mono underline underline
 mono indicator reverse
 
+# attachment view setting #
 auto_view text/html
 alternative_order text/plain text/html
 
-# These are setting for `git am` directly from mutt
+##############################################################################
+# Behavior/Control Settings
 
+# pager_stop(default no)
+# When set, the internal-pager will *not* move to the next message
+# when you are at the end of a message and invoke the next-page function.
+set pager_stop = yes
+
+# the orignal key-binding for j and k is <next-undeleted> and <previous-undeleted>
+#macro pager j <next-line>
+#macro pager k <previous-line>
+
+# fast_reply(default no)
+# When set, the initial prompt for recipients and subject are skipped
+# when replying to messages, and the initial prompt for subject is skipped
+# when forwarding messages.
+set fast_reply = yes
+
+# contain the quote in reply or forward
+set include = yes
+
+## These are setting for `git am` directly from mutt ##
+
+# pipe_split(default no)
 # pipe the tagged mails one by one, rather than concat them as a single file
 set pipe_split = yes
 
+# auto_tage(default no)
 # run function for tagged mails rather then current mail
-# (the current mail is the mail under cursor
+# (the current mail is the mail under cursor)
 # if set no, you need to press ';' to switch the function target from
 # current mail to tagged mails
 set auto_tag = yes
 
+##############################################################################
+# Mail Address Book i.e. alias_file Settings
+# create-alias function will write alias in the file
+set alias_file = ~/.mutt/alias
+# source the alias_file to make the alias effective
+source ~/.mutt/alias
+
+##############################################################################
+# Mail List Settings
+# this `lists' command is not needed, since `lists' only mark the *known* lists
+# and every *subcribed* list is *known*
+#
+subscribe kernel-mentors@selenic.com
+
+##############################################################################
+# GPG Settings
+# add gpg support, the file is copied from /usr/doc/mutt/samples
+source ~/.mutt/gpg.rc
+
+# fcc_clear(default no)
+# When set, FCCs will be stored unencrypted and unsigned, even when the actual
+# message is encrypted and/or signed
+# F stands for Folder in FCC, and FCC list the folders for a mail to copy, in
+# mostly case, the folder is your =record folder
+set fcc_clear = yes
