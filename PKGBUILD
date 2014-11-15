@@ -41,7 +41,7 @@ depends+=(xf86-input-mouse xf86-input-evdev xf86-input-keyboard xf86-input-synap
 depends+=(xorg-server xorg-xinit xorg-font-utils ttf-dejavu wqy-zenhei wqy-microhei)
 
 # X applications
-depends+=(xorg-xrandr xorg-setxkbmap xorg-xsetroot xorg-xrdb xorg-xdpyinfo xorg-xinput xclip scrot)
+depends+=(xorg-xrandr xorg-setxkbmap xorg-xsetroot xorg-xrdb xorg-xdpyinfo xorg-xinput xclip scrot synergy)
 
 # desktop environment, use cabal to install xmonad manually
 depends+=(dmenu rxvt-unicode xlockmore)
