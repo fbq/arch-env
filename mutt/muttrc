@@ -95,6 +95,16 @@ mono bold      bold
 mono underline underline
 mono indicator reverse
 
+# color magic for highlighting patches
+color body blue   default "^---$"
+color body red    default "^--- a.*$"
+color body green  default "^[+]{3} b.*$"
+color body red    default "^-($|[^-].*$)"
+color body green  default "^[+].*$"
+color body yellow default "^@@ .* @@"
+
+set quote_regexp = "^([ \t]*[|>:])+"
+
 # attachment view setting #
 auto_view text/html
 alternative_order text/plain text/html
