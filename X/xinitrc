@@ -26,7 +26,5 @@ hsetroot -full ~/.screen.xpm
 
 setxkbmap -option ctrl:nocaps
 
-eval $(gpg-agent --daemon)
-
 exec xmonad
 
