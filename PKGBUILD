@@ -14,7 +14,7 @@ depends+=(mutt getmail msmtp)
 ## privacy
 depends+=(gnupg pass)
 ## network tool
-depends+=(openssh mosh gnu-netcat mtr dnsutils)
+depends+=(openssh mosh socat mtr dnsutils nmap)
 ## network proxy
 depends+=(shadowsocks)
 ## chatting
@@ -41,7 +41,7 @@ depends+=(xf86-input-mouse xf86-input-evdev xf86-input-keyboard xf86-input-synap
 depends+=(xorg-server xorg-xinit xorg-font-utils ttf-dejavu wqy-zenhei wqy-microhei)
 
 # X applications
-depends+=(xorg-xrandr xorg-setxkbmap xorg-xsetroot xorg-xrdb xorg-xdpyinfo xorg-xinput xclip scrot synergy)
+depends+=(xorg-xrandr xorg-setxkbmap xorg-xsetroot xorg-xrdb xorg-xdpyinfo xorg-xinput xclip scrot)
 
 # desktop environment, use cabal to install xmonad manually
 depends+=(dmenu rxvt-unicode xlockmore)
@@ -50,7 +50,7 @@ depends+=(dmenu rxvt-unicode xlockmore)
 depends+=(fcitx fcitx-gtk2 fcitx-gtk3 fcitx-qt4 fcitx-qt5)
 
 # GUI apps
-depends+=(chromium)
+depends+=(chromium evince)
 
 license=('GPL')
 
