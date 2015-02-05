@@ -8,9 +8,10 @@ Bundle 'gmarik/Vundle.vim'
 Bundle 'fbq/mvp'
 Bundle 'snipMate'
 Plugin 'fatih/vim-go'
-Plugin 'PProvost/vim-markdown-jekyll'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'vim-pandoc/vim-pandoc'
 
 "gtags i.e. GNU GLOBAL need to be installed
 Bundle 'gtags.vim'
@@ -24,7 +25,7 @@ set nu
 
 " setting for js
 au FileType javascript setlocal sw=4 sts=4 et ts=4 sta si
-au FileType html setlocal sw=4 sts=4 et ts=4 sta si
+au FileType html,xhtml setlocal sw=4 sts=4 et ts=4 sta si
 
 " setting for python
 au FileType python setlocal sw=4 sts=4 et ts=4 sta si
@@ -33,7 +34,7 @@ au FileType python setlocal sw=4 sts=4 et ts=4 sta si
 au FileType scheme setlocal sw=2 sts=2 et sta si
 
 " setting for haskell
-au FileType haskell setlocal sw=2 sts=2 et sta si
+au FileType haskell setlocal sw=4 sts=4 et sta si
 
 " seting for yaml
 au FileType yaml setlocal sw=2 sts=2 et sta si
@@ -61,5 +62,12 @@ set path+=include
 " make mouse event processible by terminal version vim
 set mouse=a
 
+au FileType c setlocal ts=8 sw=8 noet sts=0 colorcolumn=80
+highlight ColorColumn ctermbg=darkgrey
+set colorcolumn=+1 " highlight column after 'textwidth'
+
 "let g:go_auto_type_info = 1
 let mapleader = '\'
+
+nmap gy :YDCVCursor<Enter>
+vmap gy :YDCVRange<Enter>
