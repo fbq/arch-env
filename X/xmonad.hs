@@ -11,7 +11,7 @@ import XMonad.StackSet
 
 main = do
     xmonad $ ewmh defaultConfig
-        { terminal = "urxvtc"
+        { terminal = "urxvt"
         , modMask = mod4Mask
         , manageHook = myManageHook <+> myScratchpadHook
         , borderWidth = 1
@@ -22,7 +22,7 @@ main = do
         [ ((mod4Mask .|. shiftMask, xK_l), spawn "xlock")
         , ((mod4Mask .|. shiftMask, xK_b), spawn "chromium")
         , ((mod4Mask .|. shiftMask, xK_s), spawn "pavucontrol")
-        , ((mod4Mask , xK_s), scratchpadSpawnActionTerminal "urxvtc")
+        , ((mod4Mask , xK_s), scratchpadSpawnActionTerminal "urxvt")
         ]
 
 myManageHook = composeAll

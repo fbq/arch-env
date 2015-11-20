@@ -24,7 +24,5 @@ xsetroot -cursor_name left_ptr
 
 setxkbmap -option ctrl:nocaps
 
-urxvtd -q -o -f
-
 exec xmonad
 
