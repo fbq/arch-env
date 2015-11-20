@@ -10,7 +10,7 @@ depends+=(gvim)
 ## version control
 depends+=(git)
 ## email
-depends+=(mutt getmail msmtp)
+depends+=(mutt offlineimap msmtp)
 ## privacy
 depends+=(gnupg pass)
 ## network tool
