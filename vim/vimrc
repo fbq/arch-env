@@ -2,19 +2,20 @@ set nocp
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#rc()
+call vundle#begin()
 
-Bundle 'gmarik/Vundle.vim'
-Bundle 'fbq/mvp'
-Bundle 'snipMate'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'fbq/mvp'
+Plugin 'snipMate'
 Plugin 'fatih/vim-go'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'vim-pandoc/vim-pandoc'
-
-"gtags i.e. GNU GLOBAL need to be installed
-Bundle 'gtags.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'rust-lang/rust.vim'
+Plugin 'airblade/vim-gitgutter'
+call vundle#end()
 
 filetype on
 filetype indent on
@@ -35,6 +36,12 @@ au FileType scheme setlocal sw=2 sts=2 et sta si
 
 " setting for haskell
 au FileType haskell setlocal sw=4 sts=4 et sta si
+
+" setting for tex
+au FileType tex setlocal sw=4 sts=4 et sta si
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor = "xelatex"
+let g:Tex_DefaultTargetFormat = "pdf"
 
 " seting for yaml
 au FileType yaml setlocal sw=2 sts=2 et sta si
@@ -62,12 +69,34 @@ set path+=include
 " make mouse event processible by terminal version vim
 set mouse=a
 
-au FileType c setlocal ts=8 sw=8 noet sts=0 colorcolumn=80
+au FileType c,cpp setlocal ts=8 sw=8 noet sts=0 colorcolumn=80
 highlight ColorColumn ctermbg=darkgrey
 set colorcolumn=+1 " highlight column after 'textwidth'
 
 "let g:go_auto_type_info = 1
 let mapleader = '\'
 
+let g:pandoc#spell#enabled = 0
 nmap gy :YDCVCursor<Enter>
 vmap gy :YDCVRange<Enter>
+
+" remember 1000 file location, and ignore /tmp/*
+set viminfo='1000,r/tmp,n~/.viminfo
+
+" restore via viminfo record
+function! ResCur()
+  if line("'\"") <= line("$")
+    normal! g`"
+    return 1
+  endif
+endfunction
+
+augroup resCur
+  autocmd!
+  autocmd BufWinEnter * call ResCur()
+augroup END
+
+" clang-format settings:
+map <C-K> :pyf /usr/share/clang/clang-format.py<cr>
+imap <C-K> <c-o>:pyf /usr/share/clang/clang-format.py<cr>
+"set list lcs=tab:\¦\
