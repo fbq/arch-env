@@ -6,6 +6,7 @@ PERSONAL_CONFIG_FILE_LIST= \
 	${HOME}/.Xmodmap \
 	${HOME}/.xmonad/xmonad.hs \
 	${HOME}/.fontconfig/fonts.conf \
+	${HOME}/.tmux.conf
 	 
 all: ${PERSONAL_CONFIG_FILE_LIST}
 
@@ -16,6 +17,10 @@ ${HOME}/.fontconfig/fonts.conf : fontconfig/fonts.conf
 ${HOME}/.vimrc : vim/vimrc
 	mkdir -p ${HOME}
 	cp vim/vimrc ${HOME}/.vimrc
+
+${HOME}/.tmux.conf : tmux/tmux.conf
+	mkdir -p ${HOME}
+	cp tmux/tmux.conf ${HOME}/.tmux.conf
 
 ${HOME}/.Xdefaults : X/Xdefaults
 	mkdir -p ${HOME}
