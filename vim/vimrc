@@ -96,6 +96,13 @@ augroup resCur
   autocmd BufWinEnter * call ResCur()
 augroup END
 
+" set keybinding in cmdline mode
+cnoremap <C-A> <Home>
+cnoremap <C-F> <Right>
+cnoremap <C-B> <Left>
+cnoremap <Esc>b <S-Left>
+cnoremap <Esc>f <S-Right>
+
 " clang-format settings:
 map <C-K> :pyf /usr/share/clang/clang-format.py<cr>
 imap <C-K> <c-o>:pyf /usr/share/clang/clang-format.py<cr>
