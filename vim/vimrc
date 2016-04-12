@@ -12,9 +12,9 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'kien/ctrlp.vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'racer-rust/vim-racer'
 call vundle#end()
 
 filetype on
@@ -70,8 +70,8 @@ set path+=include
 set mouse=a
 
 au FileType c,cpp setlocal ts=8 sw=8 noet sts=0 colorcolumn=80
-highlight ColorColumn ctermbg=darkgrey
-set colorcolumn=+1 " highlight column after 'textwidth'
+highlight ColorColumn ctermbg=darkgrey                                         
+set colorcolumn=+1 " highlight column after 'textwidth'                        
 
 "let g:go_auto_type_info = 1
 let mapleader = '\'
@@ -107,3 +107,7 @@ cnoremap <Esc>f <S-Right>
 map <C-K> :pyf /usr/share/clang/clang-format.py<cr>
 imap <C-K> <c-o>:pyf /usr/share/clang/clang-format.py<cr>
 "set list lcs=tab:\¦\
+"
+set hidden
+let g:racer_cmd = "/home/fixme/racer/target/release/racer"
+let $RUST_SRC_PATH="/home/fixme/rust/src/"
