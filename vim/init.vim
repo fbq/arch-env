@@ -46,7 +46,9 @@ au FileType java setlocal sw=4 sts=4 et ts=4 sta si
 autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
 
 " setting for cscope
-cs add ./cscope.out
+if filereadable("cscope.out")
+  cs add ./cscope.out
+endif
 set cscopequickfix=s-,c-,d-,i-,t-,e-,g-
 set cscopetag
 
@@ -89,7 +91,7 @@ nmap gy :YDCVCursor<Enter>
 vmap gy :YDCVRange<Enter>
 
 " remember 1000 file location, and ignore /tmp/*
-set viminfo='1000,r/tmp,n~/.viminfo
+set viminfo='1000,r/tmp,n~/.nviminfo
 
 " restore via viminfo record
 function! ResCur()
@@ -132,12 +134,15 @@ local on_attach = function(client, bufnr)
 
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 end
 
 nvim_lsp.rust_analyzer.setup {
     cmd = {"rustup", "run", "nightly", "rust-analyzer"},
     on_attach = on_attach,
+    root_dir = nvim_lsp.util.root_pattern("rust-project.json", "Cargo.toml"),
 }
 EOF
 
